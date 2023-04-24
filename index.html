@@ -32,6 +32,9 @@
 
     <!-- Page loading styles -->
     <style>
+      .body {
+        position: relative;
+      }
       .page-loading {
         position: fixed;
         top: 0;
@@ -107,10 +110,15 @@
           transform: rotate(360deg);
         }
       }
+      .inactiveLink {
+          pointer-events: none;
+          cursor: default;
+      }
     </style>
 
     <!-- Theme mode -->
     <script>
+
       let mode = window.localStorage.getItem('mode'),
           root = document.getElementsByTagName('html')[0];
       if (mode !== null && mode === 'dark') {
@@ -118,6 +126,17 @@
       } else {
         root.classList.remove('dark-mode');
       }
+
+      // function changeImg() {
+      //   console.log()
+      //   if (document.getElementById('parallaxImg').src.split("/")[3] == "layer02.png" && root.classList.length >= 1 ) {
+      //     document.getElementById('parallaxImg').src = 'layer01.png';
+      // } else {
+      //   document.getElementById('parallaxImg').src = 'layer02.png';
+      // }
+      //   }
+      
+      
     </script>
 
     <!-- Page loading scripts -->
@@ -131,12 +150,14 @@
           }, 1000);
         };
       })();
+
+
     </script>
   </head>
 
 
   <!-- Body -->
-  <body>
+  <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50" data-bs-smooth-scroll="true">
 
     <!-- Page loading spinner -->
     <div class="page-loading active">
@@ -150,13 +171,12 @@
     <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
     <main class="page-wrapper">
 
-
       <!-- Navbar -->
       <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
       <header class="header navbar navbar-expand-lg position-absolute navbar-sticky">
         <div class="container px-3">
-          <a href="index.html" class="navbar-brand pe-3">
-            <img src="lyri font.png" width="120" alt="Silicon">
+          <a href="#homeS" class="navbar-brand pe-3">
+            <img src="lyri font.png" width="120" alt="Lyri">
 
           </a>
           <div id="navbarNav" class="offcanvas offcanvas-end">
@@ -167,49 +187,49 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
-                  <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" aria-current="page">Product</a>
+                  <a href="#homeS" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">Product</a>
                   <div class="dropdown-menu p-0">
                     <div class="d-lg-flex">
                       <div class="mega-dropdown-column pt-lg-3 pb-lg-4">
                         <ul class="list-unstyled mb-0">
-                          <li><a href="index.html" class="dropdown-item">Product Overview</a></li>
-                          <li><a href="landing-saas-v4.html" class="dropdown-item">Demo<span class="badge bg-success ms-2">Live!</span></a></li>
-                          <li><a href="landing-saas-v4.html" class="dropdown-item">Templates<span class="badge bg-info ms-2">Coming Soon!</span></a></li>
+                          <li><a href="#" class="dropdown-item inactiveLink">Demo<span class="badge bg-info ms-2">Coming Soon!</span></a></li>
+                          <li><a href="#" class="dropdown-item inactiveLink">Templates<span class="badge bg-info ms-2">Coming Soon!</span></a></li>
                         </ul>
                       </div>
                     </div>
                   </div>
                 </li>
                 <li class="nav-item dropdown">
-                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Solutions</a>
+                  <a href="#solutionsS" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Solutions</a>
                   <div class="dropdown-menu">
                     <div class="d-lg-flex pt-lg-3">
                       <div class="mega-dropdown-column">
                         <h6 class="px-3 mb-2">AWS<span class="badge bg-warning ms-2">Kappa</span></h6>
                         <ul class="list-unstyled mb-3">
-                          <li><a href="about-v1.html" class="dropdown-item py-1">Website Deployment</a></li>
-                          <li><a href="about-v2.html" class="dropdown-item py-1">EC2 Deployment</a></li>
-                          <li><a href="about-v3.html" class="dropdown-item py-1">Static Website Deployment</a></li>
+                          <li><a href="#solutionsS" class="dropdown-item py-1">Website Deployment</a></li>
+                          <li><a href="#solutionsS" class="dropdown-item py-1">EC2 Deployment</a></li>
+                          <li><a href="#solutionsS" class="dropdown-item py-1">S3 (Storage) Interface</a></li>
+                          <li><a href="#solutionsS" class="dropdown-item py-1">Static Website Deployment</a></li>
                         </ul>
                         <h6 class="px-3 mb-2">AWS<span class="badge bg-success ms-2">Theta</span></h6>
                         <ul class="list-unstyled mb-3">
-                          <li><a href="blog-list-with-sidebar.html" class="dropdown-item py-1">VPN Server Deployment</a></li>
-                          <li><a href="blog-grid-with-sidebar.html" class="dropdown-item py-1">EC2 Size Selection</a></li>
+                          <li><a href="#solutionsS" class="dropdown-item py-1">VPN Server Deployment</a></li>
+                          <li><a href="#solutionsS" class="dropdown-item py-1">EC2 Size Selection</a></li>
                         </ul>
                       </div>
                       <div class="mega-dropdown-column">
                         <h6 class="px-3 mb-2">AWS<span class="badge bg-danger ms-2">Vega</span></h6>
                         <ul class="list-unstyled mb-3">
-                          <li><a href="portfolio-grid.html" class="dropdown-item py-1">Custom Auth Flow</a></li>
-                          <li><a href="portfolio-list.html" class="dropdown-item py-1">CI/CD Deployment</a></li>
-                          <li><a href="portfolio-slider.html" class="dropdown-item py-1">Advanced Security Configuration</a></li>
-                          <li><a href="portfolio-courses.html" class="dropdown-item py-1">AI/ML Deployment</a></li>
-                          <li><a href="portfolio-single-project.html" class="dropdown-item py-1">Advanced Cost Management</a></li>
+                          <li><a href="#solutionsS" class="dropdown-item py-1">Custom Auth Flow</a></li>
+                          <li><a href="#solutionsS" class="dropdown-item py-1">CI/CD Deployment</a></li>
+                          <li><a href="#solutionsS" class="dropdown-item py-1">Advanced Security Configuration</a></li>
+                          <li><a href="#solutionsS" class="dropdown-item py-1">AI/ML Deployment</a></li>
+                          <li><a href="#solutionsS" class="dropdown-item py-1">Advanced Cost Management</a></li>
                         </ul>
                         <h6 class="px-3 mb-2">Consultations</h6>
                         <ul class="list-unstyled mb-3">
-                          <li><a href="services-v1.html" class="dropdown-item py-1">Free Consultations</a></li>
-                          <li><a href="services-v2.html" class="dropdown-item py-1">Paid Consultations</a></li>
+                          <li><a href="#solutionsS" class="dropdown-item py-1">Free Consultations</a></li>
+                          <li><a href="#solutionsS" class="dropdown-item py-1">Paid Consultations</a></li>
                         </ul>
                       </div>
                       <div class="mega-dropdown-column">
@@ -220,18 +240,18 @@
                   </div>
                 </li>
                 <li class="nav-item">
-                  <a href="components/typography.html" class="nav-link">Plans</a>
+                  <a href="#plansS" class="nav-link">Plans</a>
                 </li>
                 <li class="nav-item">
-                  <a href="docs/getting-started.html" class="nav-link">Resources</a>
+                  <a href="#waitlist" class="nav-link">Waitlist</a>
                 </li>
               </ul>
             </div>
             <div class="offcanvas-header border-top">
-              <a href="https://google.com" class="btn btn-primary w-100" target="_blank" rel="noopener">
+              <a href="#waitlist" class="btn btn-primary w-100" target="_blank" rel="noopener">
                 <i class="bx bx-cart fs-4 lh-1 me-1"></i> 
                 <!-- TODO -->
-                &nbsp;Get Started
+                &nbsp;Request Access
               </a>
             </div>      
           </div>
@@ -243,22 +263,23 @@
           <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <a href="https://google.com" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex" target="_blank" rel="noopener">
+          <a href="#waitlist" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex" target="_blank" rel="noopener">
             <i class="bx bx-cart fs-5 lh-1 me-1"></i>
-            &nbsp;Get Started
+            &nbsp;Request Access
           </a>
         </div>
       </header>
 
 
       <!-- Hero section with layer parallax gfx -->
+      <div id="homeS">
       <section class="position-relative overflow-hidden py-4 mb-3">
         <div class="container pt-lg-3">
           <div class="row flex-lg-nowrap">
             <div class="col-lg-6 col-xl-5 text-center text-lg-start pt-5 mt-xl-4">
               <h1 class="display-4 pt-5 pb-2 pb-lg-3 mt-sm-2 mt-lg-5">Cloud for Everyone</h1>
               <p class="fs-lg mb-4 mb-lg-5">Lyri is a SaaS platform that makes the cloud more accessible, created with simplicity and ease of use in mind.</p>
-              <a href="#" class="btn btn-primary btn-lg">Get started for free</a>
+              <a href="#waitlist" class="btn btn-primary btn-lg ">Join the Waitlist</a>
               <div class="pt-5 mt-xl-5">
                 <h4 class="pt-xl-3 pb-3 pb-lg-4">What is Lyri?</h4>
                 <p>
@@ -303,7 +324,8 @@
             <!-- Layer parallax -->
             <div class="parallax mt-4 ms-4 me-lg-0 ms-lg-n5 ms-xl-n3 mt-lg-n4">
               <div class="parallax-layer" data-depth="0.1">
-                <img src="layer01.png" width="1416" alt="Layer">
+                <img id="parallaxImg" src="layer01.png" width="1416" alt="Layer">
+                <!-- TODO -->
               </div>
             </div>
           </div>
@@ -374,7 +396,6 @@
         </div>
       </section>
 
-
       <!-- Dashboard -->
       <section class="container pt-3 pt-md-4 pt-lg-5 pb-2 mt-lg-2 mt-xl-4">
         <div class="row align-items-center">
@@ -405,9 +426,9 @@
                 Trend Tracking
               </li>
             </ul>
-            <a href="#" class="btn btn-primary">
-              Learn more
-              <i class="bx bx-right-arrow-alt fs-xl ms-2"></i>
+            <a href="#" class="btn btn-primary inactiveLink">
+              Coming Soon!
+              <!-- <i class="bx bx-right-arrow-alt fs-xl ms-2"></i> -->
             </a>
           </div>
         </div>
@@ -454,7 +475,7 @@
             <div class="row align-items-center pt-3 pt-sm-4 pt-md-0 px-3 px-sm-4 px-lg-0">
               <div class="col-lg-4 col-md-5 offset-lg-1 text-center text-md-start">
                 <h3 class="mb-lg-4">What is a free consultation?</h3>
-                <p>Don’t see what you need? Our Theta and Vega subscribers get free consultation(s) with a professional DevOps Engineer every month. The DevOps Engineer will share a diagram of the infrastructure best suited to your requirements. Spots for the free consultation are limited each month. Response time can vary depending on traffic.
+                <p>Don’t see what you need? Our Theta and Vega subscribers get free consultation(s) with a professional Cloud Engineer every month. The Cloud Engineer will share a diagram of the infrastructure best suited to your requirements. Spots for the free consultation are limited each month. Response time can vary depending on traffic.
                 </p>
               </div>
               <div class="col-lg-6 col-md-7 mt-md-4">
@@ -503,11 +524,173 @@
           </div>
         </div>
       </section>
+    </div>
 
+      <section class="container pt-5 pb-2 mt-3 mt-sm-4 mt-xl-5">
+        <h2 class="h1 text-center pb-3 pb-lg-4" id="solutionsS">Solutions</h2>
+<!-- Accordion: Alternative style -->
+<div class="accordion" id="accordionAlt">
 
+  <!-- Item -->
+  <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+    <h3 class="accordion-header" id="headingFour">
+      <button class="accordion-button shadow-none rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">Deploying Websites<span class="badge bg-warning ms-2">Kappa</span><span class="badge bg-success ms-2">Theta</span><span class="badge bg-danger ms-2">Vega</span></button>
+    </h3>
+    <div class="accordion-collapse collapse show" id="collapseFour" aria-labelledby="headingFour" data-bs-parent="#accordionAlt">
+      <div class="accordion-body pt-0">
+        <p> Deploying your website to the cloud has never been easier with our platform. With just a few clicks, you can have your website up and running in the cloud, accessible to users all over the world.
+        
+        <h6>  Here are the steps on how to deploy your website to the cloud through our platform:</h6>
+          <ol>
+            <li>
+        Select a plan and create your account.
+      </li>
+      <li>
+        Upload your website files to your account.
+      </li>
+      <li>
+      Specify the framework that your website is built on.
+    </li>
+    <li>
+    Click the "Deploy" button.
+  </li>
+  <li>
+  That's it! Your website will be up and running in the cloud in just a few minutes.
+</li>
+</ol>
+
+  Static and WordPress websites are also supported.
+      </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Item -->
+  <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+    <h3 class="accordion-header" id="headingFive">
+      <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">Server Deployment<span class="badge bg-warning ms-2">Kappa</span><span class="badge bg-success ms-2">Theta</span><span class="badge bg-danger ms-2">Vega</span></button>
+    </h3>
+    <div class="accordion-collapse collapse" id="collapseFive" aria-labelledby="headingFive" data-bs-parent="#accordionAlt">
+      <div class="accordion-body pt-0">
+        
+       <p> Need a server? Lyri makes it easy to rent and launch a server in the cloud, forget having to go through numerous steps just to launch a server, we've made the process simple and easy on our platform.
+       
+       <h6>Here are the steps on to deploy a server in the cloud using our platform:</h6>
+        <ol>
+          <li>Select a plan and create your account.</li>
+          <li>Select the type of server you need.<span class="badge bg-success ms-2">Theta</span><span class="badge bg-danger ms-2">Vega</span></li>
+          <li>Choose your operating system</li>
+          <li>Choose whether you want the server to have a Public IP* or not.</li>
+          <li>Click the "Launch Server" button</li>
+          <li>Your server will be available in a few minutes. (Note: The credentials to SSH into your server will be emailed to you)</li>
+        </ol>
+        A fully configured VPN server deployment option is available in the Theta plan onwards.
+        <br><br>
+
+        <small>*If you want your server to have internet access please tick the Public IP option</small>
+      </p>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+    <h3 class="accordion-header" id="headingEight">
+      <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">S3 Interface<span class="badge bg-warning ms-2">Kappa</span><span class="badge bg-success ms-2">Theta</span><span class="badge bg-danger ms-2">Vega</span></button>
+    </h3>
+    <div class="accordion-collapse collapse" id="collapseEight" aria-labelledby="headingEight" data-bs-parent="#accordionAlt">
+      <div class="accordion-body pt-0">
+        
+       <p> Using cloud storage through our platform is easy and convenient. With our platform, you can store your files in the cloud and access them from anywhere.
+       
+       <h6>Here are the steps on how to use cloud storage through our platform:</h6>
+        <ol>
+          <li>Select a plan and create your account.</li>
+          <li>Upload your files to your account using the "Upload" button.</li>
+          <li>Once your files are uploaded, you can request a shareable link by clicking the "Share" button</li>
+          <li>Delete or download files using the "Delete" and "Download" buttons</li>
+        </ol>
+        
+      </p>
+      </div>
+    </div>
+  </div>
+  <!-- Item -->
+  <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+    <h3 class="accordion-header" id="headingSix">
+      <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">Consultations<span class="badge bg-success ms-2">Theta</span><span class="badge bg-danger ms-2">Vega</span></button>
+    </h3>
+    <div class="accordion-collapse collapse" id="collapseSix" aria-labelledby="headingSix" data-bs-parent="#accordionAlt">
+      <div class="accordion-body pt-0">
+      <p>  
+        Get a free consultation every month with a professional cloud engineer through our platform. Our team of experts is available to answer your questions and help you troubleshoot any issues you may have.
+
+        <h6>Here are the steps to redeem your monthly free consultation:</h6>
+        <ol>
+          <li>Select a plan and create your account.</li>
+          <li>Click the "Consult with an Engineer" button.</li>
+          <li>Select the date and time of your consultation.</li>
+          <li>Describe your issue in the provided form.</li>
+          <li>Submit your request.</li>
+        </ol>
+
+        Only available in our Theta (1x free consultation) and Vega (2x free consultations) plans.
+        <br><br>
+        <small>Additional paid consultations are available on request</small>
+      </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+    <h3 class="accordion-header" id="headingSeven">
+      <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">CI/CD Pipeline<span class="badge bg-danger ms-2">Vega</span></button>
+    </h3>
+    <div class="accordion-collapse collapse" id="collapseSeven" aria-labelledby="headingSeven" data-bs-parent="#accordionAlt">
+      <div class="accordion-body pt-0">
+        
+       <p> Creating a CI/CD pipeline in the cloud is easy with our platform. Our platform makes it simple to automate your software development process, so you can focus on building great software.
+       
+       <h6>Here are the steps on how to create a CI/CD pipeline in the cloud through our platform:</h6>
+        <ol>
+          <li>Select a plan and create your account.</li>
+          <li>Connect your code repository to our platform or create a code repository by clicking the "Create Repository" button.</li>
+          <li>Specify build commands. (You can refer to our detailed guide for more information)</li>
+          <li>Enter your Email Address for build notifications</li>
+          <li>Click the "Create Pipeline" button</li>
+          <li>You will be notified via email when your pipeline is available.</li>
+        </ol>
+      </p>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+    <h3 class="accordion-header" id="headingNine">
+      <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">More Solutions<span class="badge bg-primary ms-2">Coming Soon!</span></button>
+    </h3>
+    <div class="accordion-collapse collapse" id="collapseNine" aria-labelledby="headingNine" data-bs-parent="#accordionAlt">
+      <div class="accordion-body pt-0">
+      <p>  
+        Lyri is a new product that is still under development. We are excited to share our progress with you and we hope that you will join us on this journey.
+
+        <h6>Here are some of the things that we are working on:</h6>
+        <ul>
+          <li>Adding more features and functionality</li>
+          <li>Improving the user experience</li>
+        </ul>
+        We are also working on new solutions that will be coming soon. These solutions will address some of the most common problems that people face today.
+
+        We are committed to providing the best possible product and service. We appreciate your feedback and we hope that you will continue to support us as we grow.
+        <br><strong>Thank you for your interest in Lyri!</strong>
+      </p>
+      </div>
+    </div>
+  </div>
+
+</div>
+      </section>
+      
       <!-- Pricing -->
       <section class="container py-5 my-md-2 my-lg-4 my-xl-5">
-        <h2 class="h1 text-center pb-3 pb-md-4">Our Plans</h2>
+        <h2 class="h1 text-center pb-3 pb-md-4" id="plansS">Our Plans</h2>
         <div class="price-switch-wrapper mb-n2">
           <div class="table-responsive-xxl pt-md-3">
             <div class="row flex-nowrap pb-4">
@@ -558,7 +741,7 @@
                     </ul>
                   </div>
                   <div class="card-footer border-0 pt-0 pb-4">
-                    <a href="#" class="btn btn-outline-primary w-100">Start free trial</a>
+                    <a href="#" class="btn btn-outline-primary w-100 inactiveLink">Coming Soon</a>
                   </div>
                 </div>
               </div>
@@ -617,7 +800,7 @@
                     </ul>
                   </div>
                   <div class="card-footer border-0 pt-0 pb-4">
-                    <a href="#" class="btn btn-light w-100">Start free trial</a>
+                    <a href="#" class="btn btn-light w-100 inactiveLink">Coming Soon</a>
                   </div>
                 </div>
               </div>
@@ -668,7 +851,7 @@
                     </ul>
                   </div>
                   <div class="card-footer border-0 pt-0 pb-4">
-                    <a href="#" class="btn btn-outline-primary w-100">Start free trial</a>
+                    <a href="#" class="btn btn-outline-primary w-100 inactiveLink">Coming Soon</a>
                   </div>
                 </div>
               </div>
@@ -793,37 +976,37 @@
           <div class="swiper-pagination position-relative pt-3 mt-4"></div>
         </div>
         <div class="text-center pt-xl-4 my-3 mt-xl-n2">
-          <a href="#" class="btn btn-primary mt-xl-3">Read More</a>
+          <a href="#" class="btn btn-primary mt-xl-3 inactiveLink">Coming Soon</a>
         </div>
       </section>
 
 
       <!-- Sign up CTA -->
-      <section class="container">
+      <section class="container" id="waitlist">
         <div class="bg-dark border border-light rounded-3 py-5 px-4 px-sm-0">
           <div class="row justify-content-center py-sm-2 py-lg-5">
             <div class="col-xl-6 col-lg-7 col-md-8 col-sm-10 text-center">
               <h2 class="h1 text-light mb-4">Ready to Get Started?</h2>
-              <p class="fs-lg text-light opacity-70 pb-4 mb-3"><a href="landing-saas-v4.html" class="link-primary text-decoration-none">Demo<span class="badge bg-success ms-2">Live!</span></a></p>
+              <p class="fs-lg text-light opacity-70 pb-4 mb-3"><a href="#" class="link-primary text-decoration-none inactiveLink">Demo<span class="badge bg-success ms-2">Coming Soon!</span></a></p>
 
               <!-- Desktop form -->
-              <form class="input-group input-group-lg d-none d-sm-flex needs-validation mb-3" novalidate>
+              <!-- <form class="input-group input-group-lg d-none d-sm-flex needs-validation mb-3" novalidate>
                 <input type="email" class="form-control rounded-start ps-5" placeholder="Your email" required>
                 <i class="bx bx-envelope fs-lg text-muted position-absolute top-50 start-0 translate-middle-y ms-3 zindex-5"></i>
-                <div class="invalid-tooltip position-absolute top-100 start-0">Please provide a valid email address.</div>
-                <button type="submit" class="btn btn-primary">Get started</button>
-              </form>
+                <div class="invalid-tooltip position-absolute top-100 start-0">Please provide a valid email address.</div> -->
+                <a href="https://forms.gle/F3tWqjF7yHZ84gJr9" target="_blank"><button type="submit" class="btn btn-primary">Join the Waitlist</button></a>
+              <!-- </form> -->
 
               <!-- Mobile form -->
-              <form class="needs-validation d-sm-none mb-3" novalidate>
+              <!-- <form class="needs-validation d-sm-none mb-3" novalidate>
                 <div class="position-relative mb-3">
                   <input type="email" class="form-control form-control-lg rounded-start ps-5" placeholder="Your email" required>
                   <i class="bx bx-envelope fs-lg text-muted position-absolute top-50 start-0 translate-middle-y ms-3 zindex-5"></i>
                   <div class="invalid-tooltip position-absolute top-0 start-0 mt-n4">Please provide a valid email address.</div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-lg w-100">Get started for free</button>
-              </form>
-              <p class="fs-sm text-light opacity-50 mb-0">Cancel anytime, No lock-ins.</p>
+                <button type="submit" class="btn btn-primary btn-lg w-100">Join the Waitlist</button>
+              </form> -->
+              <!-- <p class="fs-sm text-light opacity-50 mb-0">Cancel anytime, No lock-ins.</p> -->
             </div>
           </div>
         </div>
@@ -844,10 +1027,10 @@
             <form class="needs-validation" novalidate>
               <label for="subscr-email" class="form-label">Subscribe to our newsletter</label>
               <div class="input-group">
-                <input type="email" id="subscr-email" class="form-control rounded-start ps-5" placeholder="Your email" required>
+                <input type="email" id="subscr-email" class="form-control rounded-start ps-5" placeholder="Coming Soon!" disabled>
                 <i class="bx bx-envelope fs-lg text-muted position-absolute top-50 start-0 translate-middle-y ms-3 zindex-5"></i>
                 <div class="invalid-tooltip position-absolute top-100 start-0">Please provide a valid email address.</div>
-                <button type="submit" class="btn btn-primary">Subscribe</button>
+                <button type="submit" class="btn btn-primary" disabled>Subscribe</button>
               </div>
             </form>
           </div>
@@ -859,19 +1042,17 @@
                 </h6>
                 <div id="useful-links" class="collapse d-lg-block" data-bs-parent="#footer-links">
                   <ul class="nav flex-column pb-lg-1 mb-lg-3">
-                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Home</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Features</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Integrations</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Demo<span class="badge bg-success ms-2">Live!</span></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Plans</a></li>
+                    <li class="nav-item"><a href="#homeS" class="nav-link d-inline-block px-0 pt-1 pb-2">Home</a></li>
+                    <li class="nav-item"><a href="#solutionsS" class="nav-link d-inline-block px-0 pt-1 pb-2">Features</a></li>
+                    <li class="nav-item"><a href="#plansS" class="nav-link d-inline-block px-0 pt-1 pb-2">Plans</a></li>
                   </ul>
                   <ul class="nav flex-column mb-2 mb-lg-0">
-                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
+                    <!-- <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li> -->
                   </ul>
                 </div>
               </div>
-              <div class="col-xl-4 col-lg-3">
+              <!-- <div class="col-xl-4 col-lg-3">
                 <h6 class="mb-2">
                   <a href="#social-links" class="d-block text-dark dropdown-toggle d-lg-none py-2" data-bs-toggle="collapse">Socials</a>
                 </h6>
@@ -883,7 +1064,7 @@
                     <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Instagram</a></li>
                   </ul>
                 </div>
-              </div>
+              </div> -->
               <div class="col-xl-4 col-lg-5 pt-2 pt-lg-0">
                 <h6 class="mb-2">Contact Us</h6>
                 <a href="mailto:support@cloudlyri.com" class="fw-medium">support@cloudlyri.com</a>
